@@ -1,6 +1,6 @@
 import requests
 
-query = "кепки"
+query = "носки"
 query = query.replace(' ', '+')
 query = query.lower()
 
