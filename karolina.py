@@ -49,12 +49,22 @@ print(all_names)
 
 import pandas as pd
 
-
-# Создаем словарь с данными
 data = {"Ссылки на товары": all_urls, "Название": all_names, "Артикул": all_articuls}
 
 # Создаем DataFrame из словаря
 df = pd.DataFrame(data)
 
-# Выводим DataFrame в виде таблицы
-print(df)
+with open('output.txt', 'w', encoding='utf8') as f_out:
+    print(df, file=f_out)
+
+import requests
+url = 'https://www.lamoda.ru/catalogsearch/result/?q=%D1%88%D1%82%D0%B0%D0%BD%D1%8B+%D0%BA%D0%B0%D1%80%D0%B3%D0%BE&submit=y&gender_section=women&sort=price_asc'
+r = requests.get(url)
+text = r.text
+
+n_in = text.find('</h2><span class="d-catalog-header__product-counter">')
+text = text[n_in+53:]
+
+n_out = text.find('товар')
+number = str(text[:n_out])
+print(number)
