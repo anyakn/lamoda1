@@ -13,7 +13,9 @@ print(number)
 url1 = 'https://www.lamoda.ru/p/mp002xw0rlgj/bags-keddo-sumka/'
 r1 = requests.get(url1)
 text1 = r1.text
-print(text1)
+with open ('sakd.txt', 'w', encoding='utf-8') as f:
+    print(text1, file=f)
+
 
 
 country_in = text1.find('"title":"Страна производства","value":')
