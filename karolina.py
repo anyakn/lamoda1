@@ -1,5 +1,4 @@
 import requests
-from lxml import html
 
 query = "кепки"
 query = query.replace(' ', '+')
@@ -32,7 +31,6 @@ for x in range(60):
     text = text[i + 41:]
     j = text.find('"},{"key":')
     articul = text[:j]
-    print(articul)
     all_articuls.append(articul)
 print(all_articuls)
 
@@ -46,17 +44,17 @@ for x in range(60):
     text = text[i + 13:]
     j = text.find('- цвет:')
     name = text[:j]
-    print(name)
     all_names.append(name)
 print(all_names)
 
+import pandas as pd
 
 
+# Создаем словарь с данными
+data = {"Ссылки на товары": all_urls, "Название": all_names, "Артикул": all_articuls}
 
-'<div class="x-premium-product-title__model-name">'
-'<div class="x-premium-product-title-new__model-name">'
+# Создаем DataFrame из словаря
+df = pd.DataFrame(data)
 
-'</div></h1><div class="x-premium-product-page__prices-info">'
-'</div></h1><div class="x-product-page__prices-info">'
-
-'''
+# Выводим DataFrame в виде таблицы
+print(df)
