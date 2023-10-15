@@ -1,0 +1,14 @@
+                                      Ссылки на товары  ...       Артикул
+0    https://www.lamoda.ru//p/mp002xw0krcq/clothes-...  ...  MP002XW0KRCQ
+1    https://www.lamoda.ru//p/mp002xw1a0zq/clothes-...  ...  MP002XW1A0ZQ
+2    https://www.lamoda.ru//p/mp002xw0x69d/clothes-...  ...  MP002XW0X69D
+3    https://www.lamoda.ru//p/mp002xw0fkfe/clothes-...  ...  MP002XW0FKFE
+4    https://www.lamoda.ru//p/mp002xw0x8xs/clothes-...  ...  MP002XW0X8XS
+..                                                 ...  ...           ...
+235  https://www.lamoda.ru//p/mp002xw0o9id/clothes-...  ...  MP002XW0O9ID
+236  https://www.lamoda.ru//p/mp002xw0nv62/clothes-...  ...  MP002XW0NV62
+237  https://www.lamoda.ru//p/rtlacq386101/clothes-...  ...  RTLACQ386101
+238  https://www.lamoda.ru//p/mp002xw01n8a/clothes-...  ...  MP002XW01N8A
+239  https://www.lamoda.ru//p/mp002xw01n8o/clothes-...  ...  MP002XW01N8O
+
+[240 rows x 3 columns]
