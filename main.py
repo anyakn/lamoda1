@@ -38,19 +38,14 @@ for page in range(pages):
     url = url + '&page=' + str(page)
     r = requests.get(url)
     text = r.text
-
-r = requests.get(url)
-all_urls = []
-text = r.text
-
-for _ in range(60):
-    i = text.find('<div class="x-product-card__card"><a href="')
-    text = text[i+43:]
-    j = text.find('" class=')
-    end_url = text[:j]
-    url = 'https://www.lamoda.ru/' + end_url
-    text = text[j:]
-    all_urls.append(url)
+    for _ in range(60):
+        i = text.find('<div class="x-product-card__card"><a href="')
+        text = text[i + 43:]
+        j = text.find('" class=')
+        end_url = text[:j]
+        url = 'https://www.lamoda.ru/' + end_url
+        text = text[j:]
+        all_urls.append(url)
 print(all_urls)
 
 
