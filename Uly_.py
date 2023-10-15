@@ -1,12 +1,51 @@
 import requests
 
-url = 'https://www.lamoda.ru/p/mp002xw0k8sc/clothes-calzedonia-bryuki/'
-r = requests.get(url)
-text = r.text
-print(text)
+query = "кепки"
+query = query.replace(' ', '+')
+query = query.lower()
 
-#Бренд и категория
-#< / div > < / div > < / a >
-#< a
-#href = "/b/29606/brand-calzedonia/"
-#class ="x-link x-link__label x-link__underline x-premium-product-links__link"
+url = 'https://www.lamoda.ru/catalogsearch/result/?q='+query+'&sort=price_asc'
+
+r = requests.get(url)
+all_urls = []
+text = r.text
+
+for _ in range(60):
+    i = text.find('<div class="x-product-card__card"><a href="')
+    text = text[i+43:]
+    j = text.find('" class=')
+    end_url = text[:j]
+    url = 'https://www.lamoda.ru/' + end_url
+    text = text[j:]
+    all_urls.append(url)
+
+
+
+all_prices = []
+for n in range(60):
+    url = all_urls[n]
+    html = requests.get(url)
+    text = html.text
+    price_in = text.find('"price":"')
+    text = text[price_in + 9:]
+    price_out = text.find('"},"original"')
+    price = text[:price_out]
+    all_prices.append(price)
+print(all_prices)
+
+all_brands = []
+for n in range(60):
+    url = all_urls[n]
+    html = requests.get(url)
+    text = html.text
+    brand_in = text.find(':"Другие товары ')
+    text = text[brand_in + 16:]
+    brand_out = text.find('","type":"brand"')
+    brand = text[:brand_out]
+    all_brands.append(brand)
+print(all_brands)
+
+
+
+
+
