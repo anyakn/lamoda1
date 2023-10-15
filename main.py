@@ -34,7 +34,7 @@ num = int(text[:num_out])
 
 pages = math.ceil(num/60)
 
-for page in range(pages):
+for page in range(1, pages+1):
     url = url + '&page=' + str(page)
     r = requests.get(url)
     text = r.text
