@@ -6,7 +6,7 @@ query = query.lower()
 
 url = 'https://www.lamoda.ru/catalogsearch/result/?q='+query+'&sort=price_asc'
 
-# url = url+'&page='+ str(number)
+#  url = url+'&page='+ str(number)
 
 r = requests.get(url)
 all_urls = []
@@ -16,8 +16,8 @@ for _ in range(60):
     i = text.find('<div class="x-product-card__card"><a href="')
     text = text[i+43:]
     j = text.find('" class=')
-    url = text[:j]
+    end_url = text[:j]
+    url = 'https://www.lamoda.ru/' + end_url
     text = text[j:]
     all_urls.append(url)
-
 print(all_urls)
